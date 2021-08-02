@@ -1,15 +1,6 @@
 ---
 title: 'Introduction'
-date: '2021-07-23'
-draft: false
+date: '2099-12-31'
+draft: true
 ---
 
-これはイントロダクション用のブログポスト
-
-```go
-import "fmt"
-
-func main() {
-	fmt.Println("hoge")
-}
-```
