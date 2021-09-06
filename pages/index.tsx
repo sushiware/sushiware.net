@@ -25,7 +25,7 @@ type Props = {
 
 const IndexPage: FC<Props> = ({ postDatas }) => {
   return (
-    <Layout home={true}>
+    <Layout home={true} title={config.title}>
       <>
         <Head>
           <title>{config.title}</title>

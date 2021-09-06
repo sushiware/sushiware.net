@@ -20,7 +20,7 @@ type Props = {
 
 const Post: FC<Props> = ({ postData }) => {
   return (
-    <Layout home={false}>
+    <Layout title={config.title}>
       <>
         <Head>
           <title>

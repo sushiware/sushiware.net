@@ -8,10 +8,11 @@ import styles from './Layout.module.css';
 
 type Props = {
   children: JSX.Element;
-  home: boolean;
+  title: string;
+  home?: boolean;
 };
 
-const Layout: FC<Props> = ({ children, home = false }) => {
+const Layout: FC<Props> = ({ children, title, home = false }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -24,7 +25,7 @@ const Layout: FC<Props> = ({ children, home = false }) => {
           <>
             <h1 className={utilStyles.heading2Xl}>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{config.title}</a>
+                <a className={utilStyles.colorInherit}>{title}</a>
               </Link>
             </h1>
           </>
