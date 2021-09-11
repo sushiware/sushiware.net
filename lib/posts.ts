@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
-import remark from 'remark';
+import { remark } from 'remark';
 import highlight from 'remark-highlight.js';
 import html from 'remark-html';
 
