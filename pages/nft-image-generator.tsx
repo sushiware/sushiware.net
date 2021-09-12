@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 
 import Layout from '../components/Layout';
 import config from '../ssg.config';
-import utilStyles from '../styles/utils.module.css';
 
 const NFTImageGenerator: FC = () => {
   return (
@@ -16,9 +15,7 @@ const NFTImageGenerator: FC = () => {
             content={`NFT Image Generator |${config.title}`}
           />
         </Head>
-        <section className={utilStyles.headingMd}></section>
-        <section
-          className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}></section>
+        <p>Please wait...</p>
       </>
     </Layout>
   );
