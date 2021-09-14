@@ -1,7 +1,7 @@
 ---
 title: 'web3.0'
 date: '2021-08-28'
-draft: false
+draft: true
 url: https://withb.co.jp/contents/26730/
 thumbnail: https://polkadot.network/assets/img/logo-polkadot.svg?v=e5bcd19e88/
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'polkadot'
 date: '2021-08-28'
-draft: false
+draft: true
 url: https://polkadot.network/
 thumbnail: https://polkadot.network/assets/img/logo-polkadot.svg?v=e5bcd19e88/
 ---
