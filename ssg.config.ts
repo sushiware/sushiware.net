@@ -1,17 +1,18 @@
 const config = {
   lang: 'ja',
-  description: 'A website written by sushiware',
-  title: 'sushiware.net',
+  description: 'NFTアーティスト成長日記',
+  subtitle: 'sushiware.net',
+  title: 'NFTアーティスト成長日記',
   twitter: 'https://twitter.com/sushiware',
   url: 'https://sushiware.net',
   metaProperties: [
     {
       property: 'og:title',
-      content: 'sushiware.net'
+      content: 'sushiware.net | NFTアーティスト成長日記'
     },
     {
       property: 'og:description',
-      content: 'A website written by sushiware'
+      content: 'sushiware.net | NFTアーティスト成長日記'
     },
     {
       property: 'og:type',
@@ -35,7 +36,7 @@ const config = {
     },
     {
       property: 'og:site_name',
-      content: 'sushiware.net'
+      content: 'sushiware.net | NFTアーティスト成長日記'
     },
     {
       property: 'og:locale',
