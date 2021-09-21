@@ -19,8 +19,7 @@ const Layout: FC<Props> = ({ children, title, home = false }) => {
         {home ? (
           <>
             <h1 className={utilStyles.heading2Xl}>{config.title}</h1>
-            <img src="logo.png" />
-            <h1 className={utilStyles.headingXl}>{config.subtitle}</h1>
+            <img src="header.png" />
           </>
         ) : (
           <>
