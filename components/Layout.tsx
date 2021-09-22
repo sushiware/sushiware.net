@@ -18,16 +18,13 @@ const Layout: FC<Props> = ({ children, title, home = false }) => {
       <header className={styles.header}>
         {home ? (
           <>
-            <h1 className={utilStyles.heading2Xl}>{config.title}</h1>
-            <img src="header.png" />
+            <img src="/header.png" />
           </>
         ) : (
           <>
-            <h1 className={utilStyles.heading2Xl}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{title}</a>
-              </Link>
-            </h1>
+            <Link href="/">
+              <img src="/posts/header.png" />
+            </Link>
           </>
         )}
       </header>
