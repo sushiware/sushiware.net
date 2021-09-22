@@ -1,6 +1,7 @@
 // import { OpenSeaPort, Network } from 'opensea-js';
 // import { OpenSeaAsset } from 'opensea-js/lib/types';
 import Web3 from 'web3';
+import { AbiItem } from 'web3-utils/types';
 
 import abi from './opensea-polygon-abi.json';
 
@@ -8,7 +9,7 @@ const web3 = new Web3('https://rpc-mainnet.maticvigil.com/');
 
 const address = '0x2953399124F0cBB46d2CbACD8A89cF0599974963';
 
-const contract = new web3.eth.Contract(abi as any, address);
+const contract = new web3.eth.Contract(abi as AbiItem[], address);
 
 // const seaport = new OpenSeaPort(provider, { networkName: Network.Main });
 
