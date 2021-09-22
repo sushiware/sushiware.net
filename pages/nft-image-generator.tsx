@@ -6,7 +6,7 @@ import config from '../ssg.config';
 
 const NFTImageGenerator: FC = () => {
   return (
-    <Layout title={`NFT Image Generator`}>
+    <Layout>
       <>
         <Head>
           <title>NFT Image Generator | {config.title}</title>
