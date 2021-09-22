@@ -5,6 +5,7 @@ import React, { FC } from 'react';
 
 import Layout from '../../components/Layout';
 import Date from '../../components/MyDate';
+import NewTabLink from '../../components/NewTabLink';
 import {
   getAllPostSlugs,
   getPostData,
@@ -32,10 +33,19 @@ const Post: FC<Props> = ({ postData }) => {
         </Head>
         <article className={styles.article}>
           <div className={styles.header}>
-            <img
-              src={path.join('thumbnails', postData.thumbnailURL)}
-              className={styles.image}
-            />
+            {postData.openSeaURL ? (
+              <NewTabLink url={postData.openSeaURL}>
+                <img
+                  src={path.join('thumbnails', postData.thumbnailURL)}
+                  className={styles.image}
+                />
+              </NewTabLink>
+            ) : (
+              <img
+                src={path.join('thumbnails', postData.thumbnailURL)}
+                className={styles.image}
+              />
+            )}
           </div>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <Date raw={postData.date} />

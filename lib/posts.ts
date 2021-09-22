@@ -16,6 +16,7 @@ export type matterData = {
   tokenAddress: string;
   tokenId: string;
   thumbnailURL: string;
+  openSeaURL: string;
 };
 
 export type params = {
