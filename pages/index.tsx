@@ -33,7 +33,7 @@ const IndexPage: FC<Props> = ({ postDatas }) => {
       <>
         <Head>
           <title>{config.title}</title>
-          <meta name="twitter:description" content={config.title} />
+          <meta name="twitter:description" content={config.description} />
         </Head>
         <section className={utilStyles.headingMd}></section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>

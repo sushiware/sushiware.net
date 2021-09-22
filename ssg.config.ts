@@ -1,6 +1,6 @@
 const config = {
   lang: 'ja',
-  description: 'NFTアーティスト成長日記',
+  description: 'NFTアーティストとしての活動、役立つ情報をお届けします。',
   title: 'NFTアーティスト成長日記',
   twitter: 'https://twitter.com/sushiware',
   url: 'https://sushiware.net',
@@ -26,20 +26,20 @@ const config = {
       content: 'https://sushiware.net/ogp.png',
     },
     {
-      property: 'twitter:image',
-      content: 'https://sushiware.net/ogp.png',
-    },
-    {
-      property: 'twitter:card',
-      content: 'summary',
-    },
-    {
       property: 'og:site_name',
       content: 'NFTアーティスト成長日記',
     },
     {
       property: 'og:locale',
       content: 'ja_JP',
+    },
+    {
+      property: 'twitter:image',
+      content: 'https://sushiware.net/ogp.png',
+    },
+    {
+      property: 'twitter:card',
+      content: 'summary',
     },
   ],
 };
