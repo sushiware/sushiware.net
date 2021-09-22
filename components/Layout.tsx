@@ -22,7 +22,9 @@ const Layout: FC<Props> = ({ children, home = false }) => {
         ) : (
           <>
             <Link href="/">
-              <img src="/posts/header.png" />
+              <a>
+                <img src="/posts/header.png" />
+              </a>
             </Link>
           </>
         )}
