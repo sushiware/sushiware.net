@@ -7,9 +7,15 @@ type Params = {
   raw: string;
 };
 
-const Date: FC<Params> = ({ raw }): JSX.Element => {
-  const date = zonedTimeToUtc(raw, 'Asia/Tokyo');
-  return <div className={styles.date}>{date.toDateString()}</div>;
-};
+const Date: FC<Params> = ({ raw }): JSX.Element => (
+  <div className={styles.date}>{format(zonedTimeToUtc(raw, 'Asia/Tokyo'))}</div>
+);
+
+const format = (date: Date): string =>
+  `${date.getFullYear()}.${to2Digit(date.getMonth() + 1)}.${to2Digit(
+    date.getDate()
+  )}`;
+
+const to2Digit = (num: number): string => ('0' + num).slice(-2);
 
 export default Date;

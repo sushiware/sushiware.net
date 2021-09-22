@@ -1,6 +1,8 @@
 ---
 title: 'NFTアーティスト活動をはじめました。'
 date: '2021-09-21'
+thumbnailURL: 'astronaut.png'
+openseaURL: 'https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/80533188798899796897868278064969341025676140528266714365537697187813461590017'
 draft: true
 ---
 

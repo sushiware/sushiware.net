@@ -13,6 +13,9 @@ export type matterData = {
   title: string;
   date: string;
   draft: boolean;
+  tokenAddress: string;
+  tokenId: string;
+  thumbnailURL: string;
 };
 
 export type params = {
@@ -61,6 +64,12 @@ export const getPostData = async (slug: string): Promise<postData> => {
   const contentHtml = processedContent.toString();
 
   const data = matterResult.data as matterData;
+
+  // NOTE: openseaのAPIがpolygonに未対応なので、使用しない
+  // const thumbnailURL =
+  //   data.tokenAddress && data.tokenId
+  //     ? ((await getAsset(data.tokenAddress, data.tokenId)).imageUrl as string)
+  //     : '';
 
   return {
     slug,

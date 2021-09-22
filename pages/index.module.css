@@ -1,0 +1,21 @@
+.listItem {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    margin: 0 0 1.25rem;
+}
+
+.thumbnail {
+    width: 10rem;
+    height: auto;
+}
+
+.line {
+    display: flex;
+}
+
+.title {
+    margin: 1rem;
+}

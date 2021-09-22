@@ -6,6 +6,16 @@
     display: flex;
 }
 
+.header {
+    text-align: center;
+}
+
+.image {
+    width: 15rem;
+    height: auto;
+    margin: 0 auto;
+}
+
 .article {
     word-wrap: break-word;
 }

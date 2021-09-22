@@ -1,3 +1,5 @@
+import path from 'path';
+
 import Head from 'next/head';
 import React, { FC } from 'react';
 
@@ -29,6 +31,12 @@ const Post: FC<Props> = ({ postData }) => {
           <meta name="twitter:description" content={postData.title} />
         </Head>
         <article className={styles.article}>
+          <div className={styles.header}>
+            <img
+              src={path.join('thumbnails', postData.thumbnailURL)}
+              className={styles.image}
+            />
+          </div>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <Date raw={postData.date} />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
