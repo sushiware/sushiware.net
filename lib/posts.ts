@@ -74,7 +74,9 @@ export const getPostData = async (slug: string): Promise<postData> => {
   //     : '';
 
   const beginningPart = (
-    fileContents.length > 50 ? fileContents.substring(0, 50) : fileContents
+    matterResult.content.length > 50
+      ? matterResult.content.substring(0, 50)
+      : matterResult.content
   ).replace(/\r?\n/g, ' ');
 
   return {
