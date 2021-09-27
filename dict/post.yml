@@ -27,3 +27,13 @@ rules:
     pattern: Meta Mask
   - expected: MetaMask
     pattern: Meta mask
+  - expected: Twitter
+    pattern: twitter
+  - expected: NFT
+    pattern: nft
+  - expected: CryptoPunks
+    pattern: cryptopunks
+  - expected: CryptoPunks
+    pattern: cryptpunks
+  - expected: CryptoPunks
+    pattern: Cryptpunks
