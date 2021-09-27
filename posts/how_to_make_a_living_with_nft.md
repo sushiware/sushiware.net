@@ -1,6 +1,6 @@
 ---
 title: 'NFTで飯を食えるようになる方法'
-date: '2021-09-26'
+date: '2021-09-27'
 thumbnailURL: 'nigiri_lean_tuna.png'
 openSeaURL: 'https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/80533188798899796897868278064969341025676140528266714365537697188912973217793'
 draft: false
