@@ -75,9 +75,11 @@ export const getPostData = async (slug: string): Promise<postData> => {
 
   const beginningPart = (
     matterResult.content.length > 50
-      ? matterResult.content.substring(0, 50)
+      ? matterResult.content.substring(0, 50) + '...'
       : matterResult.content
   ).replace(/\r?\n/g, ' ');
+
+  console.log(beginningPart);
 
   return {
     slug,
