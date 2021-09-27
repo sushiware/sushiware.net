@@ -29,7 +29,8 @@ const Post: FC<Props> = ({ postData }) => {
           <title>
             {postData.title} | {config.title}
           </title>
-          <meta name="twitter:description" content={postData.title} />
+          <meta name="twitter:title" content={postData.title} />
+          <meta name="twitter:description" content={postData.beginningPart} />
         </Head>
         <article className={styles.article}>
           <div className={styles.header}>

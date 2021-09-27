@@ -26,6 +26,7 @@ export type params = {
 export type postData = matterData &
   params & {
     contentHtml: string;
+    beginningPart: string;
   };
 
 export const getAllPostSlugs = async (): Promise<{ params: params }[]> => {
@@ -72,9 +73,14 @@ export const getPostData = async (slug: string): Promise<postData> => {
   //     ? ((await getAsset(data.tokenAddress, data.tokenId)).imageUrl as string)
   //     : '';
 
+  const beginningPart = (
+    fileContents.length > 50 ? fileContents.substring(0, 50) : fileContents
+  ).replace(/\r?\n/g, ' ');
+
   return {
     slug,
     contentHtml,
+    beginningPart,
     ...data,
   };
 };
