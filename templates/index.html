@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>latest posts</h1>
+<ul>
+	{% set posts = get_section(path="posts/_index.md") %}
+	{% for page in posts.pages | sort(attribute="date")| reverse | slice(end=4) %}
+	<li>
+		<a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+		<small>[{{ page.date }}]</small>
+	</li>
+	{% endfor %}
+	<li><a href="/posts/">...</a></li>
+</ul>
+
+<h1>social networks</h1>
+  {% for sns in config.extra.sns %}
+  <li>
+    <a href="{{ sns.url }}">{{ sns.service }}</a>
+  </li>
+  {% endfor %}
+{% endblock content %}
