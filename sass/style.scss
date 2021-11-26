@@ -11,8 +11,12 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
-* {
-    box-sizing: border-box;
+blockquote,code {
+    font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
+}
+
+code {
+    overflow-x: scroll;
 }
 
 a {
@@ -31,7 +35,7 @@ img {
 
 .section {
     margin: 0 auto 0;
-    padding: 0 1%;
+    padding: 0 3.5%;
     max-width: 36rem;
     height: 100%;
 }
@@ -41,4 +45,10 @@ img {
     text-align: center;
 }
 
-.container { }
+.title {
+    font-size: 2rem;
+}
+
+.mini {
+    font-size: 0.5rem;
+}
