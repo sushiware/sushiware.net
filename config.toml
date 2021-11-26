@@ -10,8 +10,13 @@ compile_sass = true
 build_search_index = false
 
 taxonomies = [
-	{name = "tags", feed = true},
+	{name = "tags", feed = true}
 ]
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
 
 [markdown]
 highlight_code = true
@@ -21,5 +26,6 @@ render_emoji = true
 sns = [
 	{service = "twitter", url = "https://twitter.com/sushiware"},
 	{service = "github", url = "https://github.com/sushiware"},
+	{service = "github", url = "https://github.com/nasjp"},
 ]
 author = "sushiware"

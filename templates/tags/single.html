@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+	related [{{ term.name }}] posts
+</h1>
+
+<ul>
+  {% for page in term.pages %}
+  <li>
+    <p>
+      <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+      <span class="mini">[{{ page.date }}]</span>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

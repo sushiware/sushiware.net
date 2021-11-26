@@ -1,6 +1,8 @@
 +++
 title = "setup zola blog"
 date = 2021-11-25
+[taxonomies]
+tags = ["zola"]
 +++
 
 blog を何回も作り直して 2、３記事書いて終了というのを繰り返している。

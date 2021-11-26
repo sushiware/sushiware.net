@@ -1,6 +1,8 @@
 +++
 title = "getting started with dfinity"
 date = 2021-11-26
+[taxonomies]
+tags = ["dfinity"]
 +++
 
 [difinity](https://dfinity.org) を触って local 開発を進めるためのメモ書き
