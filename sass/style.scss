@@ -11,11 +11,13 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
-blockquote,code {
+code,pre {
     font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
 }
 
-code {
+pre {
+    border-radius: 6px;
+    padding: 6px;
     overflow-x: scroll;
 }
 
