@@ -22,3 +22,4 @@ sns = [
 	{service = "twitter", url = "https://twitter.com/sushiware"},
 	{service = "github", url = "https://github.com/sushiware"},
 ]
+author = "sushiware"

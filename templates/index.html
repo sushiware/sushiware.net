@@ -15,9 +15,14 @@
 </ul>
 
 <h1>social networks</h1>
+<ul>
   {% for sns in config.extra.sns %}
   <li>
     <a href="{{ sns.url }}">{{ sns.service }}</a>
   </li>
   {% endfor %}
+</ul>
+
+<h1>about me</h1>
+<a href="/about/">here</a>
 {% endblock content %}
