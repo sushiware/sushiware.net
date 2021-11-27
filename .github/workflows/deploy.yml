@@ -12,12 +12,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: build 
-        uses: shalzz/zola-deploy-action@master
-        env:
-          BUILD_DIR: .
-          BUILD_ONLY: true
-
       - name: publish
         id: deploy
         uses: fleekhq/action-deploy@v1

@@ -4,12 +4,12 @@
     "team": "8fea7fa8-6353-478d-8049-0b214d56fd15",
     "platform": "dfinity",
     "source": "github",
-    "name": "divine-tree-4137"
+    "name": "sushiwarenet"
   },
   "build": {
     "baseDir": "",
     "publicDir": "public",
-    "command": "",
+    "command": "zola build",
     "rootDir": ""
   }
 }
