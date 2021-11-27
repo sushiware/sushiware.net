@@ -1,0 +1,3 @@
+FROM alpine:3.14
+
+RUN apk add zola --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
