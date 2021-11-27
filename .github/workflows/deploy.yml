@@ -12,16 +12,22 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: 'Build' 
+      - name: build 
         uses: shalzz/zola-deploy-action@master
         env:
           BUILD_DIR: .
           BUILD_ONLY: true
 
       - name: publish
-        uses: netlify/actions/cli@master
+        id: deploy
+        uses: fleekhq/action-deploy@v1
         with:
-          args: deploy --dir=public --prod
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          apiKey: ${{ secrets.FLEEK_API_KEY }}
+
+      # - name: publish
+      #   uses: netlify/actions/cli@master
+      #   with:
+      #     args: deploy --dir=public --prod
+      #   env:
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
