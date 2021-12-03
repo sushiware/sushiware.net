@@ -1,6 +1,6 @@
 +++
 title = "zola with motoko syntax highlighting"
-date = 2021-12-04
+date = 2021-12-03
 [taxonomies]
 tags = ["dfinity", "motoko"]
 +++
@@ -46,7 +46,7 @@ let x = 42 + (1 * 37) / 12: Nat
 
 参考:
 
-- [Github | jingyuexing/sublime-Motoko](https://github.com/jingyuexing/sublime-Motoko)
-- [Zola | Syntax Highlighting](https://www.getzola.org/documentation/content/syntax-highlighting/)
+- [jingyuexing/sublime-Motoko](https://github.com/jingyuexing/sublime-Motoko)
+- [Syntax Highlighting | Zola](https://www.getzola.org/documentation/content/syntax-highlighting/)
 
 以上
