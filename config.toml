@@ -21,6 +21,7 @@ anchors = "on"
 [markdown]
 highlight_code = true
 render_emoji = true
+extra_syntaxes = ["syntaxes"]
 
 [extra]
 sns = [
