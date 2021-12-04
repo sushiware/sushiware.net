@@ -7,7 +7,7 @@ tags = ["dfinity", "motoko"]
 
 毎回 `motoko` でプリントデバッグをする方法を忘れてしまうのでメモ
 
-```mo
+```motoko
 import D "mo:base/Debug";
 D.print(debug_show(("hello", 42, "world")))
 ```

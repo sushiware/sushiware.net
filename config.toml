@@ -30,3 +30,6 @@ sns = [
 	{service = "github", url = "https://github.com/nasjp"},
 ]
 author = "sushiware"
+
+# motoko_repl = { motoko_base_tag = "dfx-0.6.12", motoko_version = "0.5.3"}
+motoko_repl = { motoko_base_tag = "dfx-0.8.1", motoko_version = "0.6.2"}

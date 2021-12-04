@@ -4,6 +4,7 @@
 name: Swift
 file_extensions:
   - Motoko
+  - motoko
   - mo
 first_line_match: ^#!/.*\bswift
 scope: source.mo

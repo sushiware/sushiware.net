@@ -19,6 +19,10 @@ pre {
     border-radius: 6px;
     padding: 6px;
     overflow-x: scroll;
+
+    &[contenteditable="plaintext-only"] {
+        border: 2px solid ;
+    }
 }
 
 a {
@@ -58,5 +62,32 @@ img {
 .tagline {
     ul,p {
         margin: 0;
+    }
+}
+
+.run-motoko {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+
+    .run-button {
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 15px;
+        padding: 0.5rem 1rem;
+    }
+
+    .listingblock {
+        pre {
+            color: green;
+            margin: 0;
+            padding: 0 6px;
+
+            &.repl-error {
+                color: red;
+            }
+        }
     }
 }

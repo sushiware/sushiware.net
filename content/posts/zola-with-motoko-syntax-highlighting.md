@@ -35,12 +35,12 @@ extra_syntaxes = ["syntaxes"]
 これで下記のように書けば反映されるようになる
 
 ````
-```mo
+```motoko
 let x = 42 + (1 * 37) / 12: Nat
 ```
 ````
 
-```mo
+```motoko
 let x = 42 + (1 * 37) / 12: Nat
 ```
 
