@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable"
+		]
+	},
+	"exclude": [
+		"static/js/*"
+	]
+}

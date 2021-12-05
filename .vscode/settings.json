@@ -1,0 +1,14 @@
+{
+	"deno.enable": true,
+	"deno.lint": true,
+	"deno.unstable": true,
+	"deno.config": "./deno/deno.jsonc",
+	"emeraldwalk.runonsave": {
+		"commands": [
+			{
+				"match": "runMotokoRepl.ts$",
+				"cmd": "deno bundle deno/runMotokoRepl.ts static/js/runMotokoRepl.bundle.js --config deno/deno.jsonc"
+			},
+		]
+	}
+}
