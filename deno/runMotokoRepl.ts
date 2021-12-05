@@ -28,34 +28,27 @@ export const addPackage = async (
   repo: string,
   version: string,
   dir: string,
-  preTags: HTMLCollectionOf<HTMLPreElement>,
   mo: Motoko
 ) => {
   const metaUrl = `https://data.jsdelivr.com/v1/package/gh/${repo}@${version}/flat`;
   const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
   const response = await fetch(metaUrl);
   const json = (await response.json()) as jsonRespose;
-  const promises = [];
   const fetchedFiles = [];
-  json.files.filter(
+  const moFiles = json.files.filter(
     (f) => f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
   );
-  for (const f of json.files) {
-    if (f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)) {
-      const promise = (async () => {
-        const content = await (await fetch(baseUrl + f.name)).text();
-        const stripped = name + f.name.slice(dir.length + 1);
-        fetchedFiles.push(stripped);
-        mo.saveFile(stripped, content);
-      })();
-      promises.push(promise);
-    }
-  }
+
+  const promises = moFiles.map(async (f) => {
+    const content = await (await fetch(baseUrl + f.name)).text();
+    const stripped = name + f.name.slice(dir.length + 1);
+    fetchedFiles.push(stripped);
+    mo.saveFile(stripped, content);
+  });
 
   Promise.all(promises).then(() => {
     mo.addPackage(name, name + "/");
     console.log(`Loaded motoko library "${name}"`);
-    changeCodeBlock(preTags, mo);
   });
 };
 
