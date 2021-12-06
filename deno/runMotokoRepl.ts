@@ -1,4 +1,4 @@
-export const changeCodeBlock = (
+export const setupPlayground = (
   preTags: HTMLCollectionOf<HTMLPreElement>,
   mo: Motoko
 ) => {
@@ -15,7 +15,7 @@ export const changeCodeBlock = (
     .forEach((tag) => {
       tag.classList.add("motoko");
 
-      appendRun(tag, extractConfig(tag), mo);
+      insertRunButtonAndsetupOutput(tag, extractConfig(tag), mo);
     });
 };
 
@@ -34,7 +34,6 @@ export const addPackage = async (
   const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
   const response = await fetch(metaUrl);
   const json = (await response.json()) as jsonRespose;
-  const fetchedFiles = [];
   const moFiles = json.files.filter(
     (f) => f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
   );
@@ -42,7 +41,6 @@ export const addPackage = async (
   const promises = moFiles.map(async (f) => {
     const content = await (await fetch(baseUrl + f.name)).text();
     const stripped = name + f.name.slice(dir.length + 1);
-    fetchedFiles.push(stripped);
     mo.saveFile(stripped, content);
   });
 
@@ -97,7 +95,11 @@ const saveIncluded = (mo: Motoko, include: string[]) => {
   }, {});
 };
 
-const appendRun = (preTag: HTMLPreElement, config: Config, mo: Motoko) => {
+const insertRunButtonAndsetupOutput = (
+  preTag: HTMLPreElement,
+  config: Config,
+  mo: Motoko
+) => {
   if (config.name) {
     mo.saveFile(config.name, (preTag.firstChild as HTMLElement).innerText);
   }

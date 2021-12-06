@@ -1,10 +1,10 @@
-const changeCodeBlock1 = (preTags, mo)=>{
+const setupPlayground1 = (preTags, mo)=>{
     Array.from(preTags).filter((tag)=>{
         const child = tag.firstChild;
         return child && child.tagName === "CODE" && child.classList.contains("language-motoko");
     }).forEach((tag)=>{
         tag.classList.add("motoko");
-        appendRun(tag, extractConfig(tag), mo);
+        insertRunButtonAndsetupOutput(tag, extractConfig(tag), mo);
     });
 };
 const addPackage1 = async (name, repo, version, dir, mo)=>{
@@ -12,13 +12,11 @@ const addPackage1 = async (name, repo, version, dir, mo)=>{
     const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
     const response = await fetch(metaUrl);
     const json = await response.json();
-    const fetchedFiles = [];
     const moFiles = json.files.filter((f)=>f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
     );
     const promises = moFiles.map(async (f)=>{
         const content = await (await fetch(baseUrl + f.name)).text();
         const stripped = name + f.name.slice(dir.length + 1);
-        fetchedFiles.push(stripped);
         mo.saveFile(stripped, content);
     });
     Promise.all(promises).then(()=>{
@@ -57,7 +55,7 @@ const saveIncluded = (mo, include)=>{
     }, {
     });
 };
-const appendRun = (preTag, config, mo)=>{
+const insertRunButtonAndsetupOutput = (preTag, config, mo)=>{
     if (config.name) {
         mo.saveFile(config.name, preTag.firstChild.innerText);
     }
@@ -101,5 +99,5 @@ const appendRun = (preTag, config, mo)=>{
         button.click();
     }
 };
-export { changeCodeBlock1 as changeCodeBlock };
+export { setupPlayground1 as setupPlayground };
 export { addPackage1 as addPackage };

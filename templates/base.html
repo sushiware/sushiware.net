@@ -24,10 +24,10 @@
   </section>
 </body>
 
-<script async src="https://download.dfinity.systems/motoko/{{ config.extra.motoko_repl.motoko_version }}/js/moc-interpreter-{{ config.extra.motoko_repl.motoko_version }}.js"></script>
+<script src="https://download.dfinity.systems/motoko/{{ config.extra.motoko_repl.motoko_version }}/js/moc-interpreter-{{ config.extra.motoko_repl.motoko_version }}.js"></script>
 
 <script type="module">
-  import { addPackage, changeCodeBlock } from '/js/runMotokoRepl.bundle.js';
+  import { addPackage, setupPlayground } from '/js/runMotokoRepl.bundle.js';
 
   await addPackage(
     "base",
@@ -37,7 +37,7 @@
     Motoko,
   );
 
-  changeCodeBlock(document.getElementsByTagName("pre"), Motoko);
+  setupPlayground(document.getElementsByTagName("pre"), Motoko);
 </script>
 
 </html>
