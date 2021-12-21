@@ -9,24 +9,23 @@ const setupPlayground1 = (preTags, mo)=>{
 };
 const addPackage1 = async (name, repo, version, dir, mo)=>{
     const metaUrl = `https://data.jsdelivr.com/v1/package/gh/${repo}@${version}/flat`;
-    const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
-    const response = await fetch(metaUrl);
-    const json = await response.json();
-    const moFiles = json.files.filter((f)=>f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
+    const metadata = await (await fetch(metaUrl)).json();
+    const moFiles = metadata.files.filter((f)=>f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
     );
-    const promises = moFiles.map(async (f)=>{
+    const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
+    const saveFiles = moFiles.map(async (f)=>{
         const content = await (await fetch(baseUrl + f.name)).text();
         const stripped = name + f.name.slice(dir.length + 1);
         mo.saveFile(stripped, content);
     });
-    Promise.all(promises).then(()=>{
+    Promise.all(saveFiles).then(()=>{
         mo.addPackage(name, name + "/");
         console.log(`Loaded motoko library "${name}"`);
     });
 };
 const extractConfig = (pre)=>{
     const div = pre?.parentNode?.parentNode;
-    const name = div.getAttribute("id") + ".mo" || "";
+    const name = (div.getAttribute("id") || "tmp") + ".mo" || "";
     const classList = Array.from(div.classList);
     const include = classList.filter((c)=>c.startsWith("include")
     ).reduce((acc, c)=>acc.concat(c.split("_"))
@@ -49,7 +48,7 @@ const saveIncluded = (mo, include)=>{
         const node = document.getElementById(id);
         const code = node?.querySelector("div.content")?.querySelector("pre")?.querySelector("code")?.innerText || "";
         const name = id + ".mo";
-        mo.saveFile(name, id);
+        mo.saveFile(name, code);
         codes[name] = code;
         return codes;
     }, {
@@ -66,14 +65,14 @@ const insertRunButtonAndsetupOutput = (preTag, config, mo)=>{
     preTag.parentNode.insertBefore(target, preTag.nextSibling);
     target.classList.add("run-motoko");
     const button = document.createElement("button");
+    button.innerHTML = "<span>Run</span>";
+    button.classList.add("run-button");
+    target.appendChild(button);
     const output = document.createElement("div");
     output.classList.add("listingblock");
     if (config.isRun) {
         output.innerHTML = "<pre>Loading...</pre>";
     }
-    button.innerHTML = "<span>Run</span>";
-    button.classList.add("run-button");
-    target.appendChild(button);
     target.appendChild(output);
     button.addEventListener("click", ()=>{
         saveIncluded(mo, config.include);

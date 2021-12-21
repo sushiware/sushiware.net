@@ -19,10 +19,6 @@ export const setupPlayground = (
     });
 };
 
-type jsonRespose = {
-  files: [File];
-};
-
 export const addPackage = async (
   name: string,
   repo: string,
@@ -31,20 +27,24 @@ export const addPackage = async (
   mo: Motoko
 ) => {
   const metaUrl = `https://data.jsdelivr.com/v1/package/gh/${repo}@${version}/flat`;
-  const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
-  const response = await fetch(metaUrl);
-  const json = (await response.json()) as jsonRespose;
-  const moFiles = json.files.filter(
+
+  const metadata = (await (await fetch(metaUrl)).json()) as {
+    files: [File];
+  };
+
+  const moFiles = metadata.files.filter(
     (f) => f.name.startsWith(`/${dir}/`) && /\.mo$/.test(f.name)
   );
 
-  const promises = moFiles.map(async (f) => {
+  const baseUrl = `https://cdn.jsdelivr.net/gh/${repo}@${version}`;
+
+  const saveFiles = moFiles.map(async (f) => {
     const content = await (await fetch(baseUrl + f.name)).text();
     const stripped = name + f.name.slice(dir.length + 1);
     mo.saveFile(stripped, content);
   });
 
-  Promise.all(promises).then(() => {
+  Promise.all(saveFiles).then(() => {
     mo.addPackage(name, name + "/");
     console.log(`Loaded motoko library "${name}"`);
   });
@@ -53,7 +53,7 @@ export const addPackage = async (
 const extractConfig = (pre: HTMLPreElement): Config => {
   const div = pre?.parentNode?.parentNode;
 
-  const name = (div as Element).getAttribute("id") + ".mo" || "";
+  const name = ((div as Element).getAttribute("id") || "tmp") + ".mo" || "";
 
   const classList = Array.from((div as HTMLElement).classList);
 
@@ -87,7 +87,7 @@ const saveIncluded = (mo: Motoko, include: string[]) => {
 
     const name = id + ".mo";
 
-    mo.saveFile(name, id);
+    mo.saveFile(name, code);
 
     codes[name] = code;
 
@@ -115,6 +115,12 @@ const insertRunButtonAndsetupOutput = (
   (target as HTMLElement).classList.add("run-motoko");
 
   const button = document.createElement("button");
+
+  button.innerHTML = "<span>Run</span>";
+  button.classList.add("run-button");
+
+  target.appendChild(button);
+
   const output = document.createElement("div");
 
   (output as HTMLElement).classList.add("listingblock");
@@ -123,10 +129,6 @@ const insertRunButtonAndsetupOutput = (
     output.innerHTML = "<pre>Loading...</pre>";
   }
 
-  button.innerHTML = "<span>Run</span>";
-  button.classList.add("run-button");
-
-  target.appendChild(button);
   target.appendChild(output);
 
   button.addEventListener("click", () => {
