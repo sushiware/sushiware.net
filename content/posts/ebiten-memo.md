@@ -212,3 +212,5 @@ func (g *Game) Draw(screen *ebiten.Image) {
 問題は絵と音だとも思った。
 
 以上
+
+[次](./../ebiten-memo2/)
