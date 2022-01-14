@@ -108,4 +108,6 @@ df_receipt.rank()
 
 さらに面白いのが、`reset_index`の呼び元が`Series`なら`DataFrame`にして返す。
 
-[100knocks-preprocess/preprocess_knock_Python.ipynb at nasjp/learn · nasjp/100knocks-preprocess](https://github.com/nasjp/100knocks-preprocess/blob/nasjp/learn/docker/work/preprocess_knock_Python.ipynb) ここに自分がやったやつをおいておく。
+[100knocks-preprocess/preprocess_knock_Python.ipynb at nasjp/learn · nasjp/100knocks-preprocess](https://github.com/nasjp/100knocks-preprocess/blob/nasjp/learn/docker/work/preprocess_knock_Python.ipynb)
+
+ここに自分がやったやつをおいておく。
