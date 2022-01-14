@@ -3,7 +3,7 @@ title = "VisualStudio build tools C++ Compiler on Mac OS"
 date = 2022-01-12
 draft = true
 [taxonomies]
-tags = ["mac", "visual studio", "build tools", "c++", "compiler"
+tags = ["mac", "visual studio", "build tools", "c++", "compiler"]
 +++
 
 Mac OS 上で
