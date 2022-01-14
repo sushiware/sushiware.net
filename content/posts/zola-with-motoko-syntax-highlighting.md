@@ -7,7 +7,7 @@ tags = ["dfinity", "motoko"]
 
 zola に motoko の syntax highlight がなかったので追加する方法
 
-1.　`motoko.sublime-syntax`ファイルを追加
+1. `motoko.sublime-syntax`ファイルを追加
 
 ```sh
 .
@@ -16,7 +16,7 @@ zola に motoko の syntax highlight がなかったので追加する方法
 ├── sass
 ├── static
 ├── syntaxes
-│   └── motoko.sublime-syntax # <- here
+│   └── motoko.sublime-syntax # <- here
 ├── templates
 └── themes
 ```
