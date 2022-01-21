@@ -28,6 +28,10 @@ pre {
 a {
     color: #000;
     text-decoration: none;
+    display: inline-block;
+    &::first-letter {
+        font-weight: bold;
+    }
 }
 
 a:hover {
