@@ -1,5 +1,5 @@
 +++
-title = "Terraform Plan by File"
+title = "terraform plan by file"
 date = 2022-02-25
 [taxonomies]
 tags = ["terraform"]
@@ -7,7 +7,7 @@ tags = ["terraform"]
 
 `terraform`では現状、リソースあるいはモジュールを指定してしか、限定した `plan`,`apply` を行うことができない。
 
-ファイルに記述されたリソースとモジュールに対して `plan`,`apply` を行得るようにしたい。
+ファイルに記述されたすべてのリソースとモジュールに対して `plan`,`apply` を実行できるようにしたい。
 
 なのでスクリプトを書いた。
 
@@ -23,6 +23,6 @@ echo "Running 'terraform plan ${target_resource_flags} ${target_module_flags} | 
 terraform plan ${target_flags} | landscape
 ```
 
-これを`plan_file.sh`として保存し、`./plan_file.sh hoge.tf`を実行すればフ快適な`plan`生活を手にすることが可能。
+これを`plan_file.sh`として保存し、`./plan_file.sh hoge.tf`を実行すれば快適な`plan`生活を手にすることが可能。
 
 以上
