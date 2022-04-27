@@ -13,11 +13,14 @@ jobs:
       image: ghcr.io/sushiware/zola/zola:1.4.1
     steps:
       - uses: actions/checkout@v3
-      - name: Install Dependencies
+      - name: Build
         run: zola build
-
+      - name: build
+        uses: shalzz/zola-deploy-action@v0.15.3
+        env:
+          BUILD_ONLY: true
       - name: Deploy
         uses: aquiladev/ipfs-action@v0.1.1
         id: upload
         with:
-          path: ./dist
+          path: ./public
