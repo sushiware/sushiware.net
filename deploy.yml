@@ -1,0 +1,23 @@
+name: test
+
+on: [push, workflow_dispatch]
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+
+    name: Deploy
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sushiware/zola/zola:1.4.1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: zola build
+
+      - name: Deploy
+        uses: aquiladev/ipfs-action@v0.1.1
+        id: upload
+        with:
+          path: ./dist
