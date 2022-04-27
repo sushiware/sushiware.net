@@ -9,8 +9,6 @@ jobs:
 
     name: Deploy
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/sushiware/zola/zola:1.4.1
     steps:
       - uses: actions/checkout@v3
       - name: build
